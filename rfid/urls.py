@@ -5,5 +5,5 @@ app_name='rfid'
 
 
 urlpatterns = [
-    path('',views.index, name='index'),
+    path('',views.assesment, name='index'),
 ]

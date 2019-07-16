@@ -1,8 +1,41 @@
-<html>
-<head>
-    <h1>Testing</h1>
-</head>
-<body>
-    <h3>Welcome</h3>
-</body>
-</html>
+{% extends 'rfid/base.html' %}
+{% block content %}
+    <div class="row justify-content-center">
+                            <div class="col-md-10 col-sm-12">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-primary alert-dismissible" role="alert" id="alert">
+                                            <button class="close" data-dismiss="alert">
+                                                <small><sup>x</sup></small>
+                                            </button>
+                                        {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+    </div>
+    <div class="pre-scrollable" style="max-height: 75vh; width: 100%">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ass_id</th>
+                    <th scope="col">Assesment Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Sub_id</th>
+                </tr>
+            </thead>
+            <tbody class="table-light">
+                {% for count in data %}
+                    <tr>
+                        <th scope="row">{{ count.count }}</th>
+                            <td>{{ count.assid }}</td>
+                            <td>{{ count.type }}</td>
+                            <td>{{ count.date }}</td>
+                            <td>{{ count.subid }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
